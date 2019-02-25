@@ -11,4 +11,4 @@ repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
 base64 = "0.10"
-byteorder = "1.2"
+byteorder = "1.3"

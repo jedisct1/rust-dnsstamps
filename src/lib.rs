@@ -8,14 +8,6 @@ pub use self::dnscrypt::*;
 pub use self::doh::*;
 use std::io::{self, Write};
 
-#[derive(Copy, Clone, Debug)]
-pub enum Protocol {
-    Plain = 0x00,
-    DNSCrypt = 0x01,
-    DoH = 0x02,
-    DoT = 0x03,
-}
-
 pub enum InformalProperty {
     DNSSEC,
     NoLogs,

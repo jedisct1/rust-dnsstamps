@@ -29,7 +29,7 @@ impl DoHBuilder {
         self
     }
 
-    pub fn with_hash(mut self, hash: Vec<u8>) -> Self {
+    pub fn with_cert_hash(mut self, hash: Vec<u8>) -> Self {
         self.hashes.push(hash);
         self
     }
