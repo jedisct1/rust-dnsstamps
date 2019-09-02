@@ -1,5 +1,5 @@
-use byteorder::{LittleEndian, WriteBytesExt};
 use crate::{lp_encode, vlp_encode, InformalProperty, WithInformalProperty};
+use byteorder::{LittleEndian, WriteBytesExt};
 use std::io;
 
 #[derive(Default, Debug)]
@@ -45,13 +45,8 @@ impl DNSCryptBuilder {
             .map(|addr| addr.as_bytes().to_vec())
             .collect();
         vlp_encode(&mut bin, &addrs_bin)?;
-        let provider_bin = {
-            let mut bin = vec![];
-            bin.extend(&self.provider.pk);
-            bin.extend(self.provider.name.as_str().as_bytes());
-            bin
-        };
-        lp_encode(&mut bin, &provider_bin)?;
+        lp_encode(&mut bin, &self.provider.pk)?;
+        lp_encode(&mut bin, self.provider.name.as_str().as_bytes())?;
         let serialized = base64::encode_config(
             &bin,
             base64::Config::new(base64::CharacterSet::UrlSafe, false),
