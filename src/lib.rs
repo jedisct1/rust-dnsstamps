@@ -2,9 +2,11 @@ extern crate base64;
 extern crate byteorder;
 
 mod dnscrypt;
+mod dnscrypt_relay;
 mod doh;
 
 pub use self::dnscrypt::*;
+pub use self::dnscrypt_relay::*;
 pub use self::doh::*;
 use std::io::{self, Write};
 
