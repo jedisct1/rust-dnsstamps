@@ -1,6 +1,6 @@
 [package]
 name = "dnsstamps"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Create and parse DNS Stamps"
 keywords = ["dns", "dnscrypt", "doh", "stamps"]
@@ -10,5 +10,5 @@ homepage = "https://github.com/jedisct1/rust-dnsstamps"
 repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
-base64 = "0.10"
+base64 = "0.11"
 byteorder = "1.3"
