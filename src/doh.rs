@@ -1,5 +1,5 @@
-use byteorder::{LittleEndian, WriteBytesExt};
 use crate::{lp_encode, vlp_encode, InformalProperty, WithInformalProperty};
+use byteorder::{LittleEndian, WriteBytesExt};
 use std::io;
 
 #[derive(Default, Debug)]
