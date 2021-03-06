@@ -1,4 +1,5 @@
 use crate::vlp_encode;
+use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
 use std::io;
 
 #[derive(Default, Debug)]
@@ -25,10 +26,7 @@ impl DNSCryptRelayBuilder {
             .map(|addr| addr.as_bytes().to_vec())
             .collect();
         vlp_encode(&mut bin, &addrs_bin)?;
-        let serialized = base64::encode_config(
-            &bin,
-            base64::Config::new(base64::CharacterSet::UrlSafe, false),
-        );
+        let serialized = Base64UrlSafeNoPadding::encode_to_string(bin).unwrap();
         Ok(format!("sdns://{}", serialized))
     }
 }

@@ -11,5 +11,5 @@ homepage = "https://github.com/jedisct1/rust-dnsstamps"
 repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
-base64 = "0.13.0"
+ct-codecs = "1.0.0"
 byteorder = "1.4.2"

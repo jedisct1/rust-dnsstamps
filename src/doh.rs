@@ -1,5 +1,6 @@
 use crate::{lp_encode, vlp_encode, InformalProperty, WithInformalProperty};
 use byteorder::{LittleEndian, WriteBytesExt};
+use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
 use std::io;
 
 #[derive(Default, Debug)]
@@ -60,10 +61,7 @@ impl DoHBuilder {
                 .collect();
             vlp_encode(&mut bin, &bootstrap_ips_bin)?;
         }
-        let serialized = base64::encode_config(
-            &bin,
-            base64::Config::new(base64::CharacterSet::UrlSafe, false),
-        );
+        let serialized = Base64UrlSafeNoPadding::encode_to_string(bin).unwrap();
         Ok(format!("sdns://{}", serialized))
     }
 }
