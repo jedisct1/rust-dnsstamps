@@ -1,6 +1,3 @@
-extern crate base64;
-extern crate byteorder;
-
 mod dnscrypt;
 mod dnscrypt_relay;
 mod doh;

@@ -1,6 +1,7 @@
 [package]
 name = "dnsstamps"
 version = "0.1.5"
+edition = "2018"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Create and parse DNS Stamps"
 keywords = ["dns", "dnscrypt", "doh", "stamps"]
