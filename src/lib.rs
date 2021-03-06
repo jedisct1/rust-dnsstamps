@@ -1,3 +1,5 @@
+#![allow(clippy::upper_case_acronyms, clippy::vec_init_then_push)]
+
 mod dnscrypt;
 mod dnscrypt_relay;
 mod doh;
@@ -32,7 +34,7 @@ fn lp_encode<W: Write>(writer: &mut W, string: &[u8]) -> io::Result<()> {
     let len = string.len();
     assert!(len <= 0xff);
     encoded.push(len as u8);
-    encoded.extend(&string[..]);
+    encoded.extend(string);
     writer.write_all(&encoded)
 }
 
