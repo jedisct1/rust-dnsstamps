@@ -1,10 +1,10 @@
 [package]
 name = "dnsstamps"
-version = "0.1.6"
+version = "0.1.7"
 edition = "2018"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Create and parse DNS Stamps"
-keywords = ["dns", "dnscrypt", "doh", "stamps"]
+keywords = ["dns", "dnscrypt", "doh", "stamps", "odoh"]
 readme = "README.md"
 license = "ISC"
 homepage = "https://github.com/jedisct1/rust-dnsstamps"
