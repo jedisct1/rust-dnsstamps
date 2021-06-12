@@ -3,10 +3,12 @@
 mod dnscrypt;
 mod dnscrypt_relay;
 mod doh;
+mod odoh;
 
 pub use self::dnscrypt::*;
 pub use self::dnscrypt_relay::*;
 pub use self::doh::*;
+pub use self::odoh::*;
 use std::io::{self, Write};
 
 pub enum InformalProperty {

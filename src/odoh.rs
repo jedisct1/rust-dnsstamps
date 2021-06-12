@@ -4,7 +4,43 @@ use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
 use std::io;
 
 #[derive(Default, Debug)]
-pub struct DoHBuilder {
+pub struct ODoHTargetBuilder {
+    informal_properties: u64,
+    hostname: String,
+    path: String,
+}
+
+impl ODoHTargetBuilder {
+    pub fn new(hostname: String, path: String) -> Self {
+        ODoHTargetBuilder {
+            informal_properties: 0,
+            hostname,
+            path,
+        }
+    }
+
+    pub fn serialize(self) -> io::Result<String> {
+        let mut bin = vec![];
+        bin.push(0x05);
+        bin.write_u64::<LittleEndian>(self.informal_properties)?;
+        lp_encode(&mut bin, self.hostname.as_bytes())?;
+        lp_encode(&mut bin, self.path.as_bytes())?;
+        let serialized = Base64UrlSafeNoPadding::encode_to_string(bin).unwrap();
+        Ok(format!("sdns://{}", serialized))
+    }
+}
+
+impl WithInformalProperty for ODoHTargetBuilder {
+    fn with_informal_property(mut self, informal_property: InformalProperty) -> Self {
+        self.informal_properties |= u64::from(informal_property);
+        self
+    }
+}
+
+//
+
+#[derive(Default, Debug)]
+pub struct ODoHRelayBuilder {
     informal_properties: u64,
     addrs: Vec<String>,
     hashes: Vec<Vec<u8>>,
@@ -13,9 +49,9 @@ pub struct DoHBuilder {
     bootstrap_ips: Vec<String>,
 }
 
-impl DoHBuilder {
+impl ODoHRelayBuilder {
     pub fn new(hostname: String, path: String) -> Self {
-        DoHBuilder {
+        ODoHRelayBuilder {
             informal_properties: 0,
             addrs: vec![],
             hostname,
@@ -42,7 +78,7 @@ impl DoHBuilder {
 
     pub fn serialize(self) -> io::Result<String> {
         let mut bin = vec![];
-        bin.push(0x02);
+        bin.push(0x85);
         bin.write_u64::<LittleEndian>(self.informal_properties)?;
         let addrs_bin: Vec<_> = self
             .addrs
@@ -66,7 +102,7 @@ impl DoHBuilder {
     }
 }
 
-impl WithInformalProperty for DoHBuilder {
+impl WithInformalProperty for ODoHRelayBuilder {
     fn with_informal_property(mut self, informal_property: InformalProperty) -> Self {
         self.informal_properties |= u64::from(informal_property);
         self
