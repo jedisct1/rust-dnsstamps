@@ -36,6 +36,15 @@ impl DNSCryptBuilder {
         self
     }
 
+    pub fn with_port(mut self, port: u16) -> Self {
+        self.addrs = self
+            .addrs
+            .iter()
+            .map(|addr| format!("{}:{}", addr, port))
+            .collect();
+        self
+    }
+
     pub fn serialize(self) -> io::Result<String> {
         let mut bin = vec![];
         bin.push(0x01);
