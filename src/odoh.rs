@@ -22,6 +22,9 @@ impl ODoHTargetBuilder {
     }
 
     pub fn with_port(mut self, port: u16) -> Self {
+        if port == 443 {
+            return self;
+        }
         self.port = Some(port);
         self
     }
@@ -93,6 +96,9 @@ impl ODoHRelayBuilder {
     }
 
     pub fn with_port(mut self, port: u16) -> Self {
+        if port == 443 {
+            return self;
+        }
         self.port = Some(port);
         self
     }

@@ -37,6 +37,9 @@ impl DNSCryptBuilder {
     }
 
     pub fn with_port(mut self, port: u16) -> Self {
+        if port == 443 {
+            return self;
+        }
         self.addrs = self
             .addrs
             .iter()
