@@ -1,7 +1,9 @@
-use crate::{lp_encode, vlp_encode, InformalProperty, WithInformalProperty};
+use std::io;
+
 use byteorder::{LittleEndian, WriteBytesExt};
 use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
-use std::io;
+
+use crate::{lp_encode, vlp_encode, InformalProperty, WithInformalProperty};
 
 #[derive(Default, Debug)]
 pub struct DNSCryptProvider {

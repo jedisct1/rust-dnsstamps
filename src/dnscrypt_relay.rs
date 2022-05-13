@@ -1,6 +1,8 @@
-use crate::vlp_encode;
-use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
 use std::io;
+
+use ct_codecs::{Base64UrlSafeNoPadding, Encoder};
+
+use crate::vlp_encode;
 
 #[derive(Default, Debug)]
 pub struct DNSCryptRelayBuilder {

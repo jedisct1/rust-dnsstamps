@@ -5,11 +5,12 @@ mod dnscrypt_relay;
 mod doh;
 mod odoh;
 
+use std::io::{self, Write};
+
 pub use self::dnscrypt::*;
 pub use self::dnscrypt_relay::*;
 pub use self::doh::*;
 pub use self::odoh::*;
-use std::io::{self, Write};
 
 pub enum InformalProperty {
     DNSSEC,
