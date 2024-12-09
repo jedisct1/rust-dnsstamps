@@ -1,6 +1,6 @@
 [package]
 name = "dnsstamps"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2018"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Create and parse DNS Stamps"
@@ -11,5 +11,5 @@ homepage = "https://github.com/jedisct1/rust-dnsstamps"
 repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
-ct-codecs = "1.1.1"
-byteorder = "1.4.3"
+ct-codecs = "1.1.2"
+byteorder = "1.5.0"

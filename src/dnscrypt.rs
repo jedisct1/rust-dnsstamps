@@ -61,7 +61,7 @@ impl DNSCryptBuilder {
             .collect();
         vlp_encode(&mut bin, &addrs_bin)?;
         lp_encode(&mut bin, &self.provider.pk)?;
-        lp_encode(&mut bin, self.provider.name.as_str().as_bytes())?;
+        lp_encode(&mut bin, self.provider.name.as_bytes())?;
         let serialized = Base64UrlSafeNoPadding::encode_to_string(bin).unwrap();
         Ok(format!("sdns://{}", serialized))
     }
