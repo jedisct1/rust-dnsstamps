@@ -1,6 +1,6 @@
 [package]
 name = "dnsstamps"
-version = "0.1.10"
+version = "0.1.11"
 edition = "2018"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Create and serialize DNS stamps (sdns://) for DNSCrypt, DNS over HTTPS (DoH), Oblivious DoH (ODoH), and relays."
@@ -11,5 +11,5 @@ homepage = "https://github.com/jedisct1/rust-dnsstamps"
 repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
-ct-codecs = "1.1.2"
+ct-codecs = "1.1.7"
 byteorder = "1.5.0"
