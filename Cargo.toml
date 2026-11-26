@@ -7,7 +7,6 @@ description = "Create and serialize DNS stamps (sdns://) for DNSCrypt, DNS over 
 keywords = ["dns", "dnscrypt", "doh", "dns-stamps", "odoh"]
 readme = "README.md"
 license = "ISC"
-homepage = "https://github.com/jedisct1/rust-dnsstamps"
 repository = "https://github.com/jedisct1/rust-dnsstamps"
 
 [dependencies]
